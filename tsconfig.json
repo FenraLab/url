@@ -2,7 +2,6 @@
   "extends": "@fenralab/tsconfig-base/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
   },
-  "include": ["src"]
+  "include": ["src", "tests"]
 }

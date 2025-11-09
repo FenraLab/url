@@ -1,27 +1,28 @@
 {
   "name": "@fenralab/url",
   "version": "0.1.0",
-  "type": "module",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "test": "jest",
     "clean": "rimraf dist"
   },
   "devDependencies": {
     "@fenralab/tsconfig-base": "file:../tsconfig-base",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.10.0",
+    "jest": "^30.2.0",
     "rimraf": "^6.0.0",
-    "tsc-watch": "^7.2.0",
+    "ts-jest": "^29.4.5",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typedoc": "^0.28.14",
     "typescript": "^5.6.0"
   },
   "dependencies": {
