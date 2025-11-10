@@ -4,14 +4,23 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "development": {
+        "import": "./src/index.ts"
+      },
+      "default": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
     "dev": "tsx watch src/index.ts",
-    "test": "jest",
-    "clean": "rimraf dist"
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "clean": "rimraf dist",
+    "test": "jest"
   },
   "devDependencies": {
     "@fenralab/tsconfig-base": "file:../tsconfig-base",
