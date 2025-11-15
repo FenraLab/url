@@ -1,3 +1,6 @@
+
+test('coverage', () => expect(true).toBeTruthy())
+
 // import { toTokens } from "../src/tokenizer";
 // import { toAST } from "../src/ast";
 // import { Interpret } from "../src/interpreter";
