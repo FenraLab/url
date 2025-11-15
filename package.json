@@ -16,26 +16,24 @@
     "dist"
   ],
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsup",
-    "build:watch": "tsup --watch",
+    "build": "tsc --build",
+    "watch": "tsc --build -w",
+    "dev": "npm run watch",
     "clean": "rimraf dist",
+    "lint": "eslint ./src --ext .ts",
     "test": "jest"
   },
   "devDependencies": {
-    "@fenralab/tsconfig-base": "file:../tsconfig-base",
+    "@fenralab/tsconfig-base": "*",
+    "typescript": "^5.6.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.10.0",
     "jest": "^30.2.0",
     "rimraf": "^6.0.0",
-    "ts-jest": "^29.4.5",
-    "tsup": "^8.5.0",
-    "tsx": "^4.20.6",
-    "typedoc": "^0.28.14",
-    "typescript": "^5.6.0"
+    "eslint": "^9.0.0"
   },
   "dependencies": {
-    "@fenralab/core": "file:../core"
+    "@fenralab/core": "*"
   },
   "license": "MIT",
   "repository": {
