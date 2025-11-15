@@ -1,0 +1,11 @@
+{
+  "extends": "@fenralab/tsconfig-base/tsconfig.build.json",
+
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+
+  "include": [
+    "src/**/*"
+  ]
+}
