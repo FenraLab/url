@@ -1,32 +1,32 @@
 export enum EToken {
-	Unknown,
-	Literal,
-	ParameterOperator,
-	DirectoryOperator,
-	GroupStart,
-	GroupEnd,
+  Unknown,
+  Literal,
+  ParameterOperator,
+  DirectoryOperator,
+  GroupStart,
+  GroupEnd,
 }
 
 export enum ESyntax {
-	Unknown,
-	Literal,
-	Parameter,
-	Group,
-	Directory,
+  Unknown,
+  Literal,
+  Parameter,
+  Group,
+  Directory,
 }
 
 export interface IInterpreterCursor {
-    index: number;
-    params: Record<string, string>;
+  index: number;
+  params: Record<string, string>;
 }
 
 export enum EParseOutcome {
-	NoMatch,
-	Partial,
-	Complete,
+  NoMatch,
+  Partial,
+  Complete,
 }
 
 export interface IParseResult {
-	outcome: EParseOutcome;
-	cursor: IInterpreterCursor;
+  outcome: EParseOutcome;
+  cursor: IInterpreterCursor;
 }
