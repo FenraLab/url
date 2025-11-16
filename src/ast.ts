@@ -1,4 +1,4 @@
-import { ESyntax, IInterpreterCursor } from "./types";
+import { ESyntax, IInterpreterCursor, IInterpreterParams } from "./types";
 import { Token, Tokens } from "./tokenizer";
 import { inspect } from "util";
 
@@ -21,6 +21,7 @@ export abstract class Syntax<T extends ESyntax = ESyntax>
     return undefined;
   }
   abstract accepts(uri: string, cursor: ITokensCursor): boolean;
+  abstract toString(params: IInterpreterParams): string;
 }
 
 export function generateSyntax<T extends ESyntax>(type: T) {
@@ -79,6 +80,9 @@ export namespace Expressions {
       }
       return false;
     }
+    toString() {
+      return this.value;
+    }
   }
 
   export class Parameter extends generateValueSyntax<ESyntax.Parameter, string>(
@@ -111,6 +115,9 @@ export namespace Expressions {
 
       return false;
     }
+    toString(params: IInterpreterParams) {
+      return params[this.value];
+    }
   }
 
   export type GroupChild = Literal | Parameter | Directory | Group;
@@ -141,6 +148,10 @@ export namespace Expressions {
 
     accepts(uri: string, cursor: IInterpreterCursor): boolean {
       return true;
+    }
+
+    toString(params: IInterpreterParams): string {
+      return this.value.map((it) => it.toString(params)).join("");
     }
   }
 
@@ -173,6 +184,10 @@ export namespace Expressions {
       }
 
       return false;
+    }
+
+    toString(params: IInterpreterParams): string {
+      return "/" + this.value.map((it) => it.toString(params)).join("");
     }
   }
 }

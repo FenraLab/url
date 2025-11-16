@@ -15,9 +15,11 @@ export enum ESyntax {
   Directory,
 }
 
+export type IInterpreterParams = Record<string, string>;
+
 export interface IInterpreterCursor {
   index: number;
-  params: Record<string, string>;
+  params: IInterpreterParams;
 }
 
 export enum EParseOutcome {

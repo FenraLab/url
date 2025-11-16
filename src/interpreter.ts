@@ -1,5 +1,10 @@
 import { Syntax } from "./ast";
-import { EParseOutcome, IInterpreterCursor, IParseResult } from "./types";
+import {
+  EParseOutcome,
+  IInterpreterCursor,
+  IInterpreterParams,
+  IParseResult,
+} from "./types";
 
 export function Interpret(
   uri: string,
@@ -29,4 +34,8 @@ export function Interpret(
         : EParseOutcome.Partial,
     cursor,
   };
+}
+
+export function toString(uri: Syntax[], params: IInterpreterParams): string {
+  return uri.map((it) => it.toString(params)).join("");
 }
