@@ -116,7 +116,7 @@ export namespace Expressions {
       return false;
     }
     toString(params: IInterpreterParams) {
-      return params[this.value];
+      return params[this.value] ?? ':' + this.value;
     }
   }
 
